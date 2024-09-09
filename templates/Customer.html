@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Details</h1>
+        <div class="customer-info">
+            <p><strong>First Name:</strong> {{ customer.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ customer.last_name }}</p>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+            <p><strong>Phone Number:</strong> {{ customer.phone_number|default:"N/A" }}</p>
+            <p><strong>Address Line 1:</strong> {{ customer.address_line_1 }}</p>
+            <p><strong>Address Line 2:</strong> {{ customer.address_line_2|default:"N/A" }}</p>
+            <p><strong>City:</strong> {{ customer.city }}</p>
+            <p><strong>State:</strong> {{ customer.state }}</p>
+            <p><strong>Postal Code:</strong> {{ customer.postal_code }}</p>
+            <p><strong>Country:</strong> {{ customer.country }}</p>
+            <p><strong>Created At:</strong> {{ customer.created_at|date:"Y-m-d H:i" }}</p>
+            <p><strong>Updated At:</strong> {{ customer.updated_at|date:"Y-m-d H:i" }}</p>
+        </div>
+        <a href="{% url 'customer_edit' customer.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'customer_list' %}" class="btn btn-secondary">Back to List</a>
+    </div>
+</body>
+</html>
